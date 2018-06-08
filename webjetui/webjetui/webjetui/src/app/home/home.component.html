@@ -1,0 +1,26 @@
+<div class="container formdata">
+  <div id="container" class="cols" *ngIf="(movieCollection) && movieCollection!==null">
+    <div *ngFor="let mov of movieCollection">
+     <div class="row">
+        <div *ngFor="let tile of mov.Movies">
+          <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="{{tile.Poster}}" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">{{tile.Title}}</h5>
+              <p class="card-text">
+                 {{tile.Year}}
+                 {{tile.Type}}
+              </p>
+              <div *ngIf="movieDetail!=null">
+                <div>{{movieDetail.Price}}</div>
+                <div>{{movieDetail.Released}}</div>
+                <div>{{movieDetail.Genre}}</div>
+              </div>
+              <a href="javascript:void (0)" class="btn btn-primary" (click)="GetLowestPrice(tile.ID)">Detail & Price</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
